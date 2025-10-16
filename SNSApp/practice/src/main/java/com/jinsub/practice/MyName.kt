@@ -1,8 +1,12 @@
 package com.jinsub.practice
 
+import java.util.UUID
+
 class MyName {
 
+    private val uuid = UUID.randomUUID()
+
     override fun toString(): String {
-        return "눈사람"
+        return uuid.toString()
     }
 }

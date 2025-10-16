@@ -1,22 +1,23 @@
 package com.jinsub.practice
 
-import android.util.Log
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
-
-    val TAG = "AppModule"
+class UserModule {
 
     @Provides
-    @Singleton
-    fun provideMyName(): MyName {
-        Log.e(TAG,"provideMyName 호출")
-        return MyName()
+    @UserQualifier(22, 177)
+    fun provideSub(): User {
+        return User("sub")
+    }
+
+    @Provides
+    @UserQualifier(23, 187)
+    fun provideJin(): User {
+        return User("jin")
     }
 }

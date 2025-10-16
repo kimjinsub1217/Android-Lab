@@ -1,22 +1,23 @@
 package com.jinsub.practice
 
-import android.util.Log
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+class FooModule {
 
-    val TAG = "AppModule"
+    @Named("foo1")
+    @Provides
+    fun provideFoo1(): Foo {
+        return Foo("Foo 1")
+    }
 
     @Provides
-    @Singleton
-    fun provideMyName(): MyName {
-        Log.e(TAG,"provideMyName 호출")
-        return MyName()
+    fun provideFoo2(): Foo {
+        return Foo("Foo 2")
     }
 }
